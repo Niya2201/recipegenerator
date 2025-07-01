@@ -1,0 +1,19 @@
+{
+  "milk": ["almond milk", "soy milk", "oat milk", "coconut milk", "rice milk", "cashew milk"],
+  "egg": ["flaxseed", "chia seed", "unsweetened applesauce", "silken tofu", "mashed banana", "aquafaba"],
+  "maida": ["whole wheat flour", "millet flour", "ragi flour", "oat flour", "buckwheat flour", "amaranth flour"],
+  "butter": ["coconut oil", "olive oil", "avocado oil", "vegan butter", "ghee", "unsweetened applesauce"],
+  "peanut": ["sunflower seed butter", "almond butter", "soy nut butter", "tahini", "cashew butter", "coconut butter"],
+  "honey": ["maple syrup", "agave syrup", "date syrup", "molasses", "brown rice syrup", "coconut nectar"],
+  "soy sauce": ["coconut aminos", "tamari sauce", "liquid aminos", "miso paste", "worcestershire sauce (vegan)"],
+  "yogurt": ["coconut yogurt", "almond yogurt", "soy yogurt", "cashew yogurt", "oat yogurt", "greek-style almond yogurt"],
+  "cheese": ["vegan cheese", "tofu", "cashew cream", "almond ricotta", "soy cheese", "nutritional yeast"],
+  "cream": ["coconut cream", "soy cream", "cashew cream", "almond cream", "silken tofu cream", "oat cream"],
+  "wheat": ["rice flour", "corn flour", "millet flour", "amaranth flour", "buckwheat flour", "sorghum flour"],
+  "fish sauce": ["soy sauce", "tamari sauce", "coconut aminos", "vegan fish sauce", "miso paste", "worchester sauce (vegan)"],
+  "shellfish": ["tofu", "mushroom", "artichoke hearts", "jackfruit", "hearts of palm", "konjac seafood substitute"],
+  "onion": ["asafetida powder", "green onions (green part only)", "fennel bulb"],
+  "tomato": [ "roasted red bell pepper sauce", "tamarind paste","beet puree","carrot puree with vinegar","pumpkin puree","pomegranate molasses"]
+
+
+}

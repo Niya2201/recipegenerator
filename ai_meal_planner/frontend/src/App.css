@@ -1,0 +1,222 @@
+/* General reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  scroll-behavior: smooth;
+  background-color: #000;
+}
+.landing-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.85);
+  font-family: 'Times New Roman', Times, serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+
+.landing-title {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 5px black;
+}
+
+
+
+.enter-btn {
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  border: none;
+  background-color: #f57c00;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.enter-btn:hover {
+  background-color: #e65100;
+  transform: scale(1.05);
+}
+
+/* Background and overlay */
+.app-background {
+  position: relative;
+  background: url("C:\Users\Nayina\Downloads\ai_meal_planner\ai_meal_planner\frontend\src\background.jpeg") no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(201, 124, 98, 0.611);
+  z-index: 1;
+  
+}
+
+/* Slide-in Form */
+.form-wrapper {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100vh;
+  padding-right: 5vw;
+}
+
+.form-container {
+  background: rgba(228, 224, 224, 0.727);
+  backdrop-filter: blur(8px);
+  left:60%;
+  right:50%;
+  padding: 30px;
+  width: 400px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(82, 74, 74, 0.96);
+  animation: formBounce 0.6s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.form-container:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(234, 145, 145, 0.834);
+}
+
+input[type="text"],
+input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+input:focus {
+  border-color: #f57c00;
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #f57c00;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #e65100;
+  transform: scale(1.04);
+  box-shadow: 0 0 10px rgba(255, 87, 34, 0.6);
+}
+
+.error {
+  margin-top: 15px;
+  color: red;
+}
+
+/* Result Section */
+.result-section {
+  background: rgba(0, 0, 0, 0.566);
+  padding: 60px 30px;
+  min-height: 100vh;
+  z-index: 2;
+  position: relative;
+}
+
+.result-container {
+  max-width: 800px;
+  margin: auto;
+  color: white;
+}
+
+.result-container h2 {
+  color: white;
+  text-shadow: 1px 1px 5px black;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #ddd;
+  padding: 25px;
+  margin-bottom: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  color: #333;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+@keyframes slideInRight {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes formBounce {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .form-wrapper {
+    justify-content: center;
+    padding-right: 0;
+  }
+
+  .form-container {
+    width: 90%;
+  }
+}

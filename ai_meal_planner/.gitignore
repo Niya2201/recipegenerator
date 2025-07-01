@@ -1,0 +1,12 @@
+# node and Python environments
+node_modules/
+venv/
+
+# logs and environment variables
+*.log
+.env
+
+# build and system files
+dist/
+build/
+.DS_Store

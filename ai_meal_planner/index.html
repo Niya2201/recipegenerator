@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detailed Meal Plan</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 1000px; margin: auto; padding: 20px; }
+        label { font-weight: bold; margin: 5px 0 2px; display: block; }
+        input, select, button { padding: 5px; margin-bottom: 15px; width: 100%; }
+        .results { margin: 20px 0; }
+        .course-block { background: #f9f9f9; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+        .recipe-item { border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; border-radius: 5px; }
+        .ingredient-item, .step-item { margin-left: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Generate Meal Plan</h1>
+    <label for="age">Age:</label>
+    <input id="age" type="number" value="25">
+
+    <label for="weight">Weight (kg):</label>
+    <input id="weight" type="number" value="65">
+
+    <label for="height">Height (cm):</label>
+    <input id="height" type="number" value="175">
+
+    <label for="activity_level">Activity Level:</label>
+    <select id="activity_level">
+        <option value="sedentary">Sedentary</option>
+        <option value="light">Light</option>
+        <option value="moderate" selected>Moderate</option>
+        <option value="active">Active</option>
+    </select>
+
+    <label for="allergies">Allergies (comma separated):</label>
+    <input id="allergies" type="text" placeholder="e.g., peanut, egg">
+
+    <label for="cuisine">Cuisine:</label>
+   
+    <select id="cuisine" name="cuisine" required>
+        <option value="Afghan">Afghan</option>
+        <option value="African">African</option>
+        <option value="American">American</option>
+        <option value="Andhra">Andhra</option>
+        <option value="Appetizer">Appetizer</option>
+        <option value="Arab">Arab</option>
+        <option value="Asian">Asian</option>
+        <option value="Assamese">Assamese</option>
+        <option value="Awadhi">Awadhi</option>
+        <option value="Bengali Recipes">Bengali Recipes</option>
+        <option value="Bihari">Bihari</option>
+        <option value="British">British</option>
+        <option value="Brunch">Brunch</option>
+        <option value="Burmese">Burmese</option>
+        <option value="Cantonese">Cantonese</option>
+        <option value="Caribbean">Caribbean</option>
+        <option value="Chettinad">Chettinad</option>
+        <option value="Chinese">Chinese</option>
+        <option value="Coastal Karnataka">Coastal Karnataka</option>
+        <option value="Continental">Continental</option>
+        <option value="Coorg">Coorg</option>
+        <option value="Dessert">Dessert</option>
+        <option value="Dinner">Dinner</option>
+        <option value="European">European</option>
+        <option value="French">French</option>
+        <option value="Fusion">Fusion</option>
+        <option value="Goan Recipes">Goan Recipes</option>
+        <option value="Greek">Greek</option>
+        <option value="Gujarati Recipes﻿">Gujarati Recipes</option>
+        <option value="Haryana">Haryana</option>
+        <option value="Himachal">Himachal</option>
+        <option value="Hunan">Hunan</option>
+        <option value="Hyderabadi">Hyderabadi</option>
+        <option value="Indian">Indian</option>
+        <option value="Indo Chinese">Indo Chinese</option>
+        <option value="Indonesian">Indonesian</option>
+        <option value="Italian Recipes">Italian Recipes</option>
+        <option value="Japanese">Japanese</option>
+        <option value="Jewish">Jewish</option>
+        <option value="Jharkhand">Jharkhand</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Kashmiri">Kashmiri</option>
+        <option value="Kerala">Kerala</option>
+        <option value="Kerala Recipes">Kerala Recipes</option>
+        <option value="Kongunadu">Kongunadu</option>
+        <option value="Konkan">Konkan</option>
+        <option value="Korean">Korean</option>
+        <option value="Lucknowi">Lucknowi</option>
+        <option value="Lunch">Lunch</option>
+        <option value="Maharashtrian Recipes">Maharashtrian Recipes</option>
+        <option value="Malabar">Malabar</option>
+        <option value="Malaysian">Malaysian</option>
+        <option value="Malvani">Malvani</option>
+        <option value="Mangalorean">Mangalorean</option>
+        <option value="Mediterranean">Mediterranean</option>
+        <option value="Mexican">Mexican</option>
+        <option value="Middle Eastern">Middle Eastern</option>
+        <option value="Mughlai">Mughlai</option>
+        <option value="Nagaland">Nagaland</option>
+        <option value="Nepalese">Nepalese</option>
+        <option value="North East India Recipes">North East India Recipes</option>
+        <option value="North Indian Recipes">North Indian Recipes</option>
+        <option value="North Karnataka">North Karnataka</option>
+        <option value="Oriya Recipes">Oriya Recipes</option>
+        <option value="Pakistani">Pakistani</option>
+        <option value="Parsi Recipes">Parsi Recipes</option>
+        <option value="Punjabi">Punjabi</option>
+        <option value="Rajasthani">Rajasthani</option>
+        <option value="Shandong">Shandong</option>
+        <option value="Sichuan">Sichuan</option>
+        <option value="Side Dish">Side Dish</option>
+        <option value="Sindhi">Sindhi</option>
+        <option value="Snack">Snack</option>
+        <option value="South Indian Recipes">South Indian Recipes</option>
+        <option value="South Karnataka">South Karnataka</option>
+        <option value="Sri Lankan">Sri Lankan</option>
+        <option value="Tamil Nadu">Tamil Nadu</option>
+        <option value="Thai">Thai</option>
+        <option value="Udupi">Udupi</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
+        <option value="Uttarakhand-North Kumaon">Uttarakhand-North Kumaon</option>
+        <option value="Vietnamese">Vietnamese</option>
+        <option value="World Breakfast">World Breakfast</option>
+    </select>
+</label>
+
+    </select>
+
+    <button id="submitBtn">Generate Meal Plan</button>
+
+    <div id="results" class="results"></div>
+
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', async () => {
+            const payload = {
+                age: parseInt(document.getElementById('age').value),
+                weight: parseInt(document.getElementById('weight').value),
+                height: parseInt(document.getElementById('height').value),
+                activity_level: document.getElementById('activity_level').value,
+                allergies: document.getElementById('allergies').value.split(',').map(a => a.trim()),
+                cuisine: document.getElementById('cuisine').value
+            };
+            
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = "<p>Loading results...</p>";
+
+            try {
+                const response = await fetch('http://127.0.0.1:8000/generate_meal_plan_by_user_data', {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify(payload)
+                });
+                if (!response.ok) {
+                    resultsDiv.innerHTML = "<p>Error: " + response.statusText + "</p>";
+                    return;
+                }
+
+                const data = await response.json();
+
+                // Main Details
+                resultsDiv.innerHTML = `
+                    <h2>Summary</h2>
+                    <p>Age: ${data.age}</p>
+                    <p>Weight: ${data.weight}</p>
+                    <p>Height: ${data.height}</p>
+                    <p>BMI: ${data.bmi}</p>
+                    <p>Daily Calorie Target: ${data.daily_calorie_target}</p>
+                    <p>Total Selected Calories: ${data.total_calories}</p>
+                    <p>Difference: ${data.difference}</p>
+                    <p>Cuisine: ${data.cuisine}</p>
+                `;
+
+                // Meals by Course
+                for (const [course, meals] of Object.entries(data.meals_by_course)) {
+                    const courseBlock = document.createElement('div');
+                    courseBlock.classList.add('course-block');
+                    courseBlock.innerHTML = `<h3>${course}</h3>`;
+
+                    meals.forEach(meal => {
+                        const item = document.createElement('div');
+                        item.classList.add('recipe-item');
+                        item.innerHTML = `
+                            <h4>${meal.name}</h4>
+                            <p>Calories: ${meal.calories}</p>
+                            <p>Prep Time: ${meal.prep_time}</p>
+                            <p>Cook Time: ${meal.cook_time}</p>
+                            <p>Total Time: ${meal.total_time}</p>
+                            <p>Cuisine: ${meal.cuisine}</p>
+                            <p>Course: ${meal.course}</p>
+                            <p>Diet: ${meal.diet}</p>
+                            <h5>Ingredients:</h5>
+                            ${meal.ingredients.map(ing => `
+                                <div class="ingredient-item">
+                                    <strong>Original:</strong> ${ing.original}<br/>
+                                    <strong>Substitution:</strong> ${ing.substitution}<br/>
+                                    <strong>Allergen Detected:</strong> ${ing.allergen_detected}
+                                </div>
+                            `).join('')}
+                            <h5>Steps:</h5>
+                            ${meal.steps.map(step => `<div class="step-item">${step}</div>`).join('')}
+                        `;
+                        courseBlock.appendChild(item);
+                    });
+                    resultsDiv.appendChild(courseBlock);
+                }
+
+            } catch (error) {
+                resultsDiv.innerHTML = "<p>Error: " + error.message + "</p>";
+            }
+        });
+    </script>
+</body>
+</html>

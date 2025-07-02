@@ -51,7 +51,7 @@ body, html {
 /* Background and overlay */
 .app-background {
   position: relative;
-  background: url("C:\Users\Nayina\Downloads\ai_meal_planner\ai_meal_planner\frontend\src\background.jpeg") no-repeat center center fixed;
+  background:  url("background.jpeg") no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;
   overflow-x: hidden;
